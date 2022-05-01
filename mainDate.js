@@ -1,0 +1,6 @@
+const dateCls=require('./showDate')
+let currDate=new Date()
+let date=new dateCls(currDate)
+console.log(date.getDateString())
+console.log(date.getLocaleDateString())
+console.log(date.getUTCString())
