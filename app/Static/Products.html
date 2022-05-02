@@ -1,16 +1,16 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <script src="Scripts/Ajax2.js"></script>
-    <script src="../Scripts/Products.js"></script>
-    <link href="Style/Main.css" rel="stylesheet" />
-    <link href="../Style/Products.css" rel="stylesheet" />
+    <!-- <script src="Scripts/Ajax2.js"></script> -->
+    <script src="./Scripts/Products.js"></script>
+    <link href="./Style/Main.css" rel="stylesheet" />
+    <link href="./Style/Products.css" rel="stylesheet" />
 
     <meta charset="utf-8" />
     <title></title>
     <!-- Product Template -->
     <template id="temp-card">
-        <div class="card">
+        <div class="card" id="card">
             <div class="img-w">
                 <img src="tmp.jpg" alt="" style="width:100%">
             </div>
@@ -23,10 +23,11 @@
 
     <!-- Category Template -->
     <template id="temp-category">
-        <div class="cb checkbox">
-            <input type="checkbox" class="opt" id="" value="">
+    
+        <div class="cb checkbox" id="2">
+            <input type="checkbox" class="opt" id="checkbox" value="">
             <label for="">
-                <span class="OptionName"></span>
+                <span class="OptionName" id="OptionName"></span>
                 <span class="Count"></span>
                 </a>
             </label>

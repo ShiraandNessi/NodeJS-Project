@@ -10,7 +10,7 @@ router.get('/', productController.list);
 /*
  * GET
  */
-router.get('/:categoryId', productController.show);
+router.get('/category/', productController.show);
 
 /*
  * POST

@@ -48,16 +48,5 @@ module.exports = {
         res.send(order)
     },
 
-    /**
-     * orderController.remove()
-     */
-    remove: async function (req, res) {
-        const orderId = req.params.orderId;
-        const productId = req.params.productId;
-       const order= await OrderModel.findOne({_id:orderId});
-           order.items.findOne({product:productId})
-
-         res.send(order)
-      
-    }
+    
 };
