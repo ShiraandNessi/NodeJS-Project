@@ -139,7 +139,7 @@ p.description{
 
 .Filters {
     position: absolute;
-   
+    width: 184px;
     float: right;
     margin: 4px 4px;
     padding-top: 50px;
@@ -150,6 +150,5 @@ p.description{
     font-family: Arial;
     font-size: 14px;
     min-height:100%;
-    width: 13%;
 
 }

@@ -11,7 +11,7 @@ class dataBase{
     .then(()=>{
       console.log('database conected')
     }).catch(err=>{
-      console.error(err)
+      console.log(err)
     })
      
    };

@@ -1,3 +1,5 @@
+
+
 window.addEventListener('load',pageLoad)
 function pageLoad(){
     products=JSON.parse(sessionStorage.getItem('shoppingBag'));
@@ -11,6 +13,10 @@ function loadProducts(products){
 }
 function drawProducts(products){
     document.getElementById("items").innerHTML=""
+    if(!products){
+        alert('the bag is empty')
+    }
+    else{
     for(let i =0;i<products.length;i++){
         tempProduct = document.getElementById("temp-row");
         const clonProducts = tempProduct.content.cloneNode(true);
@@ -22,7 +28,7 @@ function drawProducts(products){
             deleteElement(products[i])
         })
         document.getElementById("items").appendChild(clonProducts)
-    };
+    };}
 }
 function deleteElement(pro){
     products=JSON.parse(sessionStorage.getItem('shoppingBag'))
@@ -52,24 +58,47 @@ function loadHeader(products){
 }
 function calcTotalAmount(){
     let totalAmount=0;
+    if(!products){
+        alert('the bag is empty')
+    }
+    else{
     for(let i =0;i<products.length;i++){
         totalAmount+=products[i].product.price*products[i].quantity;
     }
-    return totalAmount
-    
+}    return totalAmount
 }
 function makeOrder(){
+    
+    products=JSON.parse(sessionStorage.getItem('shoppingBag'))
+    if(!products){
+        alert('the bag is empty')
+    }
+    else{
+    let ids=[]
+    for(let i =0;i<products.length;i++){
+        ids[i]={product:products[i].product._id,
+            quantity:products[i].quantity};
+    }
+
+let amount=calcTotalAmount()
+let id=JSON.parse(sessionStorage.getItem('CorrentUser'))._id
+let d=new Date()
     let order={
-        user:6,
-        items:JSON.parse(sessionStorage.getItem('shoppingBag')),
-        sum:calcTotalAmount(),
-        date:new Date()
+        user:id,
+        items:ids,
+        sum:amount,
+        date:d
     }
-    const addNewOrder = await fetch('/api/order' ,{
-        method: 'POST',
-        headers:{'content-type':'application/json',
+    console.log(order)
+    sessionStorage.setItem('order',JSON.stringify(order))
+    fetch('/api/order' ,{
+        method: "POST",
+        headers:{'Content-Type':'application/json'},
         body:JSON.stringify(order)
-    }
+
     })
+    .then(res=>alert('your order shipped'))
+
+}
 
 }

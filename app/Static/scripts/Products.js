@@ -50,8 +50,9 @@ function drawProducts(products){
     document.getElementById("counter").innerHTML=products.length
     products.forEach(product => {
         tempProduct = document.getElementById("temp-card");
+        console.log("../images/products/" + product.imagename+'.png')
         const clonProducts = tempProduct.content.cloneNode(true);
-        clonProducts.querySelector("img").src = "./images/products/" + product.imageName+'.jpg';
+        clonProducts.querySelector("img").src = "../images/products/" + product.imagename+'.png';
         clonProducts.querySelector("h1").innerText =product.name;
         clonProducts.querySelector(".price").innerText = "₪" +product.price;
         clonProducts.querySelector(".description").innerText = product.desc;

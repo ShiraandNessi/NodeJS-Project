@@ -9,7 +9,7 @@ var productSchema = new Schema({
 	 	type: Schema.Types.ObjectId,
 	 	ref: 'category'
 	},
-	'imageName':String
+	'imagename':String
 });
 
 module.exports = mongoose.model('product', productSchema);
